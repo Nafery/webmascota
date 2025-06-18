@@ -1,12 +1,126 @@
-# React + Vite
+# WebMascota 🐾
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+WebMascota es una aplicación web diseñada para gestionar información sobre mascotas, permitiendo a los usuarios interactuar con diferentes funcionalidades como registro, inicio de sesión y visualización de datos relacionados con sus mascotas.
 
-Currently, two official plugins are available:
+## 🚀 Características
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Inicio de sesión seguro:** Autenticación de usuarios con contraseñas encriptadas.
+- **Gestión de usuarios:** Registro y manejo de información de los usuarios.
+- **Diseño intuitivo y adaptable:** Implementado con Tailwind CSS para garantizar una experiencia visual coherente y funcional en distintos dispositivos.
+- **Conexión a API:** Integración con una API para manejar datos de usuarios y mascotas.
 
-## Expanding the ESLint configuration
+## 🛠️ Tecnologías utilizadas
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **Frontend:**
+  - React
+  - React Router DOM
+  - Tailwind CSS
+- **Backend:**
+  - Python (Flask)
+  - MySQL
+  - bcrypt (para encriptación de contraseñas)
+- **Herramientas adicionales:**
+  - Vite (como bundler)
+  - Axios (para llamadas a la API)
+
+## 📂 Estructura del proyecto
+
+```plaintext
+webmascota/
+├── public/
+├── src/
+│   ├── assets/ 
+│   │   ├── logomascota.png
+│   │   ├── logomascota.svg
+│   │   └── react.svg
+│   ├── components/
+│   │   └── navbar.jsx
+│   ├── hooks/
+│   │   └── useUserProfile.jsx
+│   ├── pages/
+│   │   ├── attention/
+│   │   ├── home/
+│   │   ├── login/
+│   │   ├── pet/
+│   │   └── user_profile/
+│   ├── services/
+│   │   ├── attention_service.jsx
+│   │   ├── auth_service.jsx
+│   │   ├── pet_service.jsx
+│   │   └── user_service.jsx
+│   ├── api.js
+│   ├── App.jsx
+│   ├── index.css
+│   └── main.jsx
+├── .gitignore
+├── README.md
+├── eslint.config.js
+├── index.html
+├── package-lock.json
+├── package.json
+├── postcss.config.js
+├── tailwind.config.js
+└── vite.config.js
+```
+
+## ⚙️ Configuración del proyecto
+
+1.- Clonar el repositorio
+
+```bash
+git clone https://github.com/Nafery/webmascota
+cd webmascota
+```
+
+2.- Instalar dependencias
+
+```bash
+npm install
+```
+
+3.- Configurar variables de entorno
+
+Configura la URL con el puerto en el que se encuentra tu API en el archivo api.js.
+
+4.- Iniciar el servidor de desarrollo
+
+```bash
+npm run dev
+```
+
+## 🧪 Pruebas
+
+Asegúrate de que tu API esté corriendo y accesible antes de probar la aplicación. Puedes iniciar
+sesión con un usuario registrado o crear uno nuevo.
+
+### Endpoint de login
+
+ * URL: /login
+ * Método: POST
+ * Cuerpo de la solicitud:
+
+```json
+{
+    "correo": "usuario@ejemplo.com",
+    "password": "contraseña123"
+}
+```
+
+ * Respuesta exitosa:
+
+```json
+{
+    "id": 1,
+    "nombre": "Usuario Ejemplo",
+    "correo": "usuario@ejemplo.com",
+    "comuna": "Comuna Ejemplo"
+}
+```
+
+ * Error:
+
+```json
+{
+    "error": "Usuario no encontrado"
+}
+```
